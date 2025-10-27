@@ -2,46 +2,92 @@
 <html>
   <head>
     <title>Bountiful Bentos Co.</title>
-    <meta charset="utf-8">
     
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Concert+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
   </head>
   <body>
-    <header>
-      <img src="images/logo.jpg" alt="logo" width="100" height="100" id="logo">
-      <nav>
-        <a href="src/menu.html">Menu</a>
-        <a href="src/locate_us.html">Locate Us</a>
-        <a href="src/login.html">Login</a>
-      </nav>
+    <!-- NAVIGATION -->
+    <header class="navbar">
+      <div class="nav-container">
+        <img src="assets/images/BountifulBentos_Logo_Cream.png" alt="Bountiful Bentos Logo" class="logo">
+        <nav class="nav-links">
+          <a href="src/menu.html">Menu</a>
+          <a href="src/contact.html">Locate Us</a>
+        </nav>
+
+        <div class="nav-right">   <!--this is to keep the icons flushed to the right side-->
+          <a href="src/cart.html"><img src="assets/images/Cart_BB.png" alt="Cart" class="nav-icon"></a>
+          <a href="src/login.html"><img src="assets/images/User_BB.png" alt="User" class="nav-icon"></a>
+        </div>
+      </div>
     </header>
 
-    <div>
+    <!-- HERO -->
+    <section class="hero">
+      <img src="assets/images/Home_MainImg.jpg" alt="Bento Boxes" class="hero-img">
+      <div class="hero-text">
+        <h1>Bountiful Bentos</h1>
+        <p>Nutritious Bentos to Fuel Your Busy Days</p>
+        <button class="order-btn" id="orderNow">Order Now</button>
+      </div>
+    </section>
 
-    </div>
+    <!-- OFFERS -->
+    <section class="carousel-section">
+      <h2>Offers</h2>
+      <div class="carousel" id="offersCarousel">
+        <button class="carousel-btn left" data-target="offersCarousel">&#10094;</button>
+        <div class="carousel-track"></div>
+        <button class="carousel-btn right" data-target="offersCarousel">&#10095;</button>
+      </div>
+    </section>
 
-    <footer>
-      <div>
-        <img src="images/logo.jpg" alt="Logo">
+    <!-- NEW -->
+    <section class="carousel-section">
+      <h2>New</h2>
+      <div class="carousel" id="newCarousel">
+        <button class="carousel-btn left" data-target="newCarousel">&#10094;</button>
+        <div class="carousel-track"></div>
+        <button class="carousel-btn right" data-target="newCarousel">&#10095;</button>
       </div>
-      <div class="about-us">
-        <h5>About Us</h5>
-        <a href="src/our_team.html">Our Team</a>
-        <a href="src/our_story.html">Our Story</a>
-      </div>
-      <div class="support-us">
-        <h5>Support Us</h5>
-        <a href="src/locate_us.html">Locate Us</a>
-        <a href="src/join_us.html">Join Us</a>
-      </div>
-      <div class="newsletter">
-        <h5>Sign Up For Our Newsletter</h5>
-        <p>
-          Want to know how each bento is made with your health 
-          in mind? Join our monthly newsletter!
-        </p>
-        <form action=""></form>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews-section">
+      <h2>See What Others Are Saying</h2>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div><img src="assets/images/BountifulBentos_Logo_Cream.png" alt="Bountiful Bentos Logo" class="footer-logo"></div>
+        <div>
+          <h4>About Us</h4>
+          <ul><li>Our Team</li><li>Our Story</li></ul>
+        </div>
+
+        <div>
+          <h4>Support Us</h4>
+          <ul><li>Location</li><li>Contact</li><li>Join Us</li></ul>
+        </div>
+
+        <div>
+          <h4>Sign Up for Our Newsletter</h4>
+          <form id="newsletterForm">
+            <input type="email" placeholder="Email address" required>
+            <button type="submit">→</button>
+          </form>
+        </div>
       </div>
     </footer>
+
+    <script src="js/main.js"></script>
   </body>
 </html>

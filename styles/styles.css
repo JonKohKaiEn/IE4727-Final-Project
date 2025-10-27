@@ -1,7 +1,215 @@
-#logo {
-    float: left;
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Arial', sans-serif; background-color: #f5e9c9; color: #333; }
+
+/*Logo sizing*/
+.logo {
+  height: 60px; 
+  margin-right: 40px;
 }
 
-header {
-    background-color: #386641;
+/* Navbar */
+.navbar {
+  background-color: #2f6043;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Left section (logo + nav links) */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Text links beside logo */
+.nav-links a {
+  color: #F2E8CF;
+  text-decoration: none;
+  margin-right: 25px;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* Right section (icons) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-icon {
+  height: 40px; /* adjust proportionally to your logo */
+  width: auto;
+  transition: transform 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+
+.nav-icon:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 10px 0;
+  }
+  .logo {
+    height: 80px;
+    margin-right: 20px;
+  }
+  .nav-links a {
+    margin-right: 15px;
+    font-size: 1em;
+  }
+  .nav-icon {
+    height: 32px;
+  }
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 400px;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+.hero-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+.hero-text h1 { font-size: 3em; margin-bottom: 10px; }
+.hero-text p { font-size: 1.3em; margin-bottom: 20px; }
+.order-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #fff;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Carousel */
+.carousel-section { padding: 40px 0; text-align: center; }
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel-card {
+  background: #fff;
+  border-radius: 10px;
+  margin: 10px;
+  flex: 0 0 300px;
+  text-align: left;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+.carousel-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+.carousel-card .info {
+  padding: 15px;
+}
+.carousel-card h3 {
+  font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+}
+.carousel-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+}
+.carousel-btn.left { left: 0; }
+.carousel-btn.right { right: 0; }
+
+/* Reviews */
+.reviews-section {
+  background: #b14a3b;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  width: 90%;
+  margin-inline: auto;
+}
+.review-card {
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: left;
+}
+.review-card img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+.review-card .stars { color: #f5c542; }
+
+/* Footer */
+.footer {
+  background: #2f6043;
+  color: #fff;
+  padding: 30px 0;
+}
+.footer-container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.footer-logo { width: 80px; margin-bottom: 10px; }
+#newsletterForm { display: flex; gap: 10px; margin-top: 10px; }
+#newsletterForm input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+}
+#newsletterForm button {
+  background: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
