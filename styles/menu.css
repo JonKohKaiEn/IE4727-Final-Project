@@ -81,8 +81,8 @@
     text-align: center;
 }
 
-.qty-btn {
-    background-color: #e74c3c;
+.qty-btn-minus {
+    background-color: #BC4749;
     color: white;
     border: none;
     border-radius: 5px;
@@ -93,8 +93,24 @@
     vertical-align: middle;
 }
 
-.qty-btn:hover {
+.qty-btn-minus:hover {
     background-color: #c0392b;
+}
+
+.qty-btn-plus {
+    background-color: #386641;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.qty-btn-plus:hover {
+    background-color: #269c3e;
 }
 
 .qty-input {

@@ -74,9 +74,9 @@
                 echo "<p>" . htmlspecialchars($item['description']) . "</p>";
                 echo "<p class='price'>$" . number_format($item['price'], 2) . "</p>";
                 echo "<div class='quantity-controls'>";
-                echo "<button class='qty-btn' onclick='decreaseQty(this)'>-</button>";
+                echo "<button class='qty-btn-minus' onclick='decreaseQty(this)'>-</button>";
                 echo "<input type='number' value='0' min='0' class='qty-input'>";
-                echo "<button class='qty-btn' onclick='increaseQty(this)'>+</button>";
+                echo "<button class='qty-btn-plus' onclick='increaseQty(this)'>+</button>";
                 echo "</div>";
                 echo "</div>";
                 echo "</td>";
