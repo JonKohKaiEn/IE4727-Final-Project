@@ -17,7 +17,7 @@
     <!-- NAVIGATION -->
     <header class="navbar">
       <div class="nav-container">
-        <img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Bountiful Bentos Logo" class="logo">
+        <a href="../index.html"><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Bountiful Bentos Logo" class="logo"></a>
         <nav class="nav-links">
           <a href="../src/menu.php">Menu</a>
           <a href="../src/contact.html">Locate Us</a>

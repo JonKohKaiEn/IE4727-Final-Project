@@ -1,0 +1,114 @@
+/* === HERO SECTION === */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 570px;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 30%;
+  left: 37%;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.hero-text h1 {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 42px;
+}
+
+.hero-text p {
+    font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.order-btn {
+  background-color: #F2E8CF;
+  color: #2f6043;
+  border: none;
+  padding: 12px 30px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+  border-radius: 5px;
+}
+
+/* === CAROUSEL SECTION === */
+.carousel-section {
+  width: 90%;
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+.carousel-section h2 {
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+/* Horizontal scroll with floats */
+.carousel-container {
+  width: 9999px; /* long width to hold all items */
+}
+
+.carousel-item {
+  float: left;
+  width: 200px;
+  margin-right: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.carousel-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Clear floats */
+.carousel-section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* === REVIEWS === */
+.reviews {
+  width: 100%;
+  margin: 50px auto;
+  text-align: center;
+  background: #BC4749;
+}
+
+.reviews h2{
+    padding-top: 32px;
+    color: #F2E8CF;
+}
+
+.review {
+  float: left;
+  width: 35%;
+  margin: 2.5%;
+  background: #F2E8CF;
+  border-radius: 10px;
+  padding: 15px;
+  min-height: 150px;
+}
+
+.reviews::after {
+  content: "";
+  display: block;
+  clear: both;
+}
