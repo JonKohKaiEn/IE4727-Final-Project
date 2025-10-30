@@ -1,3 +1,54 @@
+<?php
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Initialize cart if it doesn't exist
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = array();
+    }
+    
+    // Validate that required fields exist and have valid values
+    if (isset($_POST['item_name']) && 
+        isset($_POST['item_price']) && 
+        isset($_POST['quantity']) && 
+        isset($_POST['item_image']) &&
+        $_POST['item_name'] !== '' &&
+        is_numeric($_POST['item_price']) &&
+        is_numeric($_POST['quantity'])) {
+        
+        $item_name = htmlspecialchars($_POST['item_name']);
+        $item_price = floatval($_POST['item_price']);
+        $item_quantity = intval($_POST['quantity']);
+        $item_image = htmlspecialchars($_POST['item_image']);
+
+        // Only process if quantity is greater than 0
+        if ($item_quantity > 0) {
+            $item_exists = false;
+
+            // Check if item already exists in cart
+            foreach ($_SESSION['cart'] as &$item) {
+                if (isset($item['name']) && $item['name'] === $item_name) {
+                    $item['quantity'] += $item_quantity;
+                    $item_exists = true;
+                    break;
+                }
+            }
+            unset($item); // Unset the reference after the loop
+
+            // Add new item if it doesn't exist
+            if (!$item_exists) {
+                $_SESSION['cart'][] = array(
+                    'name' => $item_name,
+                    'price' => $item_price,
+                    'quantity' => $item_quantity,
+                    'image' => $item_image
+                );
+            }
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,7 +75,7 @@
         </nav>
 
         <div class="nav-right">   <!--this is to keep the icons flushed to the right side-->
-          <a href="../src/cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="nav-icon"></a>
+          <a href="../src/cart.php"><img src="../assets/images/Cart_BB.png" alt="Cart" class="nav-icon"></a>
           <a href="../src/login.html"><img src="../assets/images/User_BB.png" alt="User" class="nav-icon"></a>
         </div>
       </div>
@@ -73,11 +124,17 @@
                 echo "<h3>" . htmlspecialchars($item['name']) . "</h3>";
                 echo "<p>" . htmlspecialchars($item['description']) . "</p>";
                 echo "<p class='price'>$" . number_format($item['price'], 2) . "</p>";
+                echo "<form method='post' action=''>";
+                echo "<input type='hidden' name='item_name' value='" . htmlspecialchars($item['name']) . "'>";
+                echo "<input type='hidden' name='item_price' value='" . $item['price'] . "'>";
+                echo "<input type='hidden' name='item_image' value='" . $item['image_url'] . "'>";
                 echo "<div class='quantity-controls'>";
-                echo "<button class='qty-btn-minus' onclick='decreaseQty(this)'>-</button>";
-                echo "<input type='number' value='0' min='0' class='qty-input'>";
-                echo "<button class='qty-btn-plus' onclick='increaseQty(this)'>+</button>";
+                echo "<button type='button' class='qty-btn-minus' onclick='decreaseQty(this)'>-</button>";
+                echo "<input type='number' name='quantity' value='0' min='0' class='qty-input'>";
+                echo "<button type='button' class='qty-btn-plus' onclick='increaseQty(this)'>+</button>";
                 echo "</div>";
+                echo "<button type='submit' class='add-to-cart-btn'>Add to Cart</button>";
+                echo "</form>";
                 echo "</div>";
                 echo "</td>";
                 
@@ -142,7 +199,7 @@
       });
 
       function increaseQty(btn) {
-          const input = btn.previousElementSibling;
+          const input = btn.nextElementSibling;
           input.value = parseInt(input.value) + 1;
       }
 
