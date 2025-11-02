@@ -65,18 +65,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </head>
 
   <body>
-    <!-- NAVIGATION -->
+    <!-- ===== NAVBAR ===== -->
     <header class="navbar">
       <div class="nav-container">
-        <a href="../index.html"><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Bountiful Bentos Logo" class="logo"></a>
+        <a href="../index.php"><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo"></a>
+
         <nav class="nav-links">
           <a href="../src/menu.php">Menu</a>
-          <a href="../src/contact.html">Locate Us</a>
+          <a href="../src/locate_us.html">Locate Us</a>
         </nav>
 
-        <div class="nav-right">   <!--this is to keep the icons flushed to the right side-->
-          <a href="../src/cart.php"><img src="../assets/images/Cart_BB.png" alt="Cart" class="nav-icon"></a>
-          <a href="../src/login.html"><img src="../assets/images/User_BB.png" alt="User" class="nav-icon"></a>
+        <div class="nav-icons">
+          <a href="../src/cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="../src/login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
         </div>
       </div>
     </header>
