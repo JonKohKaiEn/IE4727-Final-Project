@@ -1,3 +1,4 @@
+<?php include_once __DIR__ . '/api/db_connect.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,20 +54,22 @@
     <!-- ===== REVIEWS ===== -->
     <section class="reviews">
       <h2>What Our Customers Say</h2>
-      <div >
 
+      <div class="review-container">
         <div class="review">
           <q>Quick, affordable, and delicious. Love the variety!</q><br>
           <strong>- Priya, NTU Year 3</strong>
         </div>
-        <table>
-          <div class="review" class="review-cards">
+
+        <div class="review">
           <q>The bentos are super tasty and healthy! Perfect for my lunch breaks!</q><br>
           <strong>- Alex, NTU Year 2</strong>
-          </div>
-        </table>
+        </div>
       </div>
+
+      <div style="clear: both;"></div>
     </section>
+
 
     <!-- ===== FOOTER ===== -->
     <footer>
@@ -96,6 +99,10 @@
             <button>→</button>
           </form>
         </div>
+      </div>
+
+      <div class="copywrite">
+        <br><p>© 2025 Koh Kai En Jonathan & Chye Qing Yi Adeline. All rights reserved. Bountiful Bentos Co.</p>
       </div>
     </footer>
   </body>

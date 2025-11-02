@@ -117,3 +117,9 @@ footer {
   display: block;
   clear: both;
 }
+
+/* Copywrite */
+.copywrite {
+  width: 50%;
+  padding-left: 420px;
+}
