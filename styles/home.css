@@ -87,7 +87,8 @@
 /* === REVIEWS === */
 .reviews {
   width: 100%;
-  margin: 50px auto;
+  margin: 0;              /* remove outside gap */
+  padding-bottom: 40px;   /* space inside instead */
   text-align: center;
   background: #BC4749;
 }
@@ -97,14 +98,21 @@
     color: #F2E8CF;
 }
 
+.review-container {
+  width: 80%;              /* narrow container */
+  margin: 0 auto;          /* centers horizontally */
+  overflow: hidden;        /* contain floats */
+}
+
 .review {
   float: left;
-  width: 35%;
+  width: 45%;              /* both reviews fit side by side */
   margin: 2.5%;
   background: #F2E8CF;
   border-radius: 10px;
   padding: 15px;
   min-height: 150px;
+  box-sizing: border-box;
 }
 
 .reviews::after {
