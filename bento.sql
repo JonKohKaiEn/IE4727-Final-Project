@@ -19,7 +19,6 @@ INSERT INTO homeproducts (name, category, price, description, image_url) VALUES
 ('Tempura Bento','classic',8.50,'Assorted tempura fried golden, rice, miso soup and vegetables','assets/images/#'),
 ('Mushroom Veggie Bento','classic',5.80,'Braised shiitake mushrooms, mixed vegetables, fried tofu, rice and miso soup','assets/images/#'),
 ('Tofu Medley Bento','classic',5.60,'Steamed tofu with light soy-sauce, fried tofu puffs, stir-fried vegetables, rice and miso soup','assets/images/#'),
-
 ('Katsu Curry Bento','classic',7.50,'Chicken katsu with Japanese curry and seasonal greens','assets/images/#'),
 ('Beef Sukiyaki Bento','classic',8.20,'Beef slices simmered in sweet soy sauce, rice, tofu, and vegetables','assets/images/#'),
 ('Spicy Miso Pork Bento','classic',8.00,'Miso-marinated pork with kimchi and rice','assets/images/#'),
@@ -41,4 +40,4 @@ INSERT INTO reviews (name, rating, comment, avatar_url) VALUES
 ('Samantha',5,'Absolutely delicious! Great value for money.','assets/images/#'),
 ('Marcus',4,'The bentos taste great and the portions are generous.','assets/images/#'),
 ('Priya',5,'Loved the variety and the freshness!','assets/images/#'),
-('Jin',4.5,'The spicy miso is my go-to. Would love more sides!','assets/images/#');
+('Jin',4,'The spicy miso is my go-to. Would love more sides!','assets/images/#');

@@ -47,76 +47,203 @@
 
 /* === CAROUSEL SECTION === */
 .carousel-section {
-  width: 90%;
-  margin: 40px auto;
-  overflow: hidden;
-}
-
-.carousel-section h2 {
-  text-align: center;
-  font-family: 'Noto Sans', sans-serif;
-}
-
-/* Horizontal scroll with floats */
-.carousel-container {
-  width: 9999px; /* long width to hold all items */
-}
-
-.carousel-item {
-  float: left;
-  width: 200px;
-  margin-right: 15px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-}
-
-.carousel-item img {
   width: 100%;
-  border-radius: 10px;
+  text-align: center;
+  margin: 40px auto;
 }
 
-/* Clear floats */
-.carousel-section::after {
-  content: "";
+.carousel-center {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.carousel {
   display: block;
-  clear: both;
+  white-space: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* === PRODUCT CARDS === */
+.product-card {
+  float: none;
+  display: inline-block;
+  width: 240px;
+  height: 330px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+  margin: 15px;
+  overflow: hidden;
+  vertical-align: top;
+  text-align: left;
+  color: #2f6043;
+  box-sizing: border-box;
+}
+
+.card-image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #f2f2f2;
+}
+
+.card-image img {
+  width: auto;
+  height: 100%;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.card-info {
+  padding: 10px 12px;
+  text-align: left;
+  height: 160px;
+}
+
+.product-name {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  margin: 5px 0;
+  font-size: 20px;
+  white-space: normal;
+}
+
+.product-price {
+  font-family: 'Inter', sans-serif;
+  margin: 3px 0;
+  font-size: 16px;
+}
+
+.product-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #2f6043;
+  margin-top: 5px;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* === ARROW BUTTONS === */
+.carousel-container {
+  position: relative;
+  width: 90%;
+  margin: 0 auto 40px auto;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 40%;
+  background-color: #2f6043;
+  color: #ffffff;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.carousel-arrow.left {
+  left: 0;
+}
+
+.carousel-arrow.right {
+  right: 0;
+}
+
+.carousel-arrow:hover {
+  background-color: #BC4749;
 }
 
 /* === REVIEWS === */
 .reviews {
   width: 100%;
-  margin: 0;              /* remove outside gap */
-  padding-bottom: 40px;   /* space inside instead */
+  background-color: #BC4749;
+  padding: 40px 0;
+  color: #2f6043;
   text-align: center;
-  background: #BC4749;
 }
 
-.reviews h2{
-    padding-top: 32px;
-    color: #F2E8CF;
+.reviews h2 {
+  color: #F2E8CF;
+  font-family: 'Noto Sans', sans-serif;
+  margin-bottom: 30px;
 }
 
-.review-container {
-  width: 80%;              /* narrow container */
-  margin: 0 auto;          /* centers horizontally */
-  overflow: hidden;        /* contain floats */
+.review-carousel-container {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-.review {
-  float: left;
-  width: 45%;              /* both reviews fit side by side */
-  margin: 2.5%;
+.review-carousel {
+  white-space: nowrap;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.review-card {
+  display: inline-block;
   background: #F2E8CF;
+  width: 40%;
+  vertical-align: top;
+  margin: 0 2%;
   border-radius: 10px;
-  padding: 15px;
-  min-height: 150px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 20px;
+  text-align: left;
+  color: #2f6043;
   box-sizing: border-box;
 }
 
-.reviews::after {
-  content: "";
-  display: block;
-  clear: both;
+.review-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.review-card td {
+  padding: 6px 0;
+  vertical-align: top;
+}
+
+.review-card strong {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.review-card em {
+  font-style: italic;
+  color: #555;
+}
+
+/* Carousel buttons */
+.review-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #2f6043;
+  color: #F2E8CF;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.review-btn.left { left: 0; }
+.review-btn.right { right: 0; }
+
+.review-btn:hover {
+  background-color: #F2E8CF;
+  color: #2f6043;
 }

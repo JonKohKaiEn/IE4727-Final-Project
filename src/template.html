@@ -15,42 +15,54 @@
     <!-- NAVIGATION -->
     <header class="navbar">
       <div class="nav-container">
-        <img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Bountiful Bentos Logo" class="logo">
+        <a href="index.php"><img src="assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo"></a>
+
         <nav class="nav-links">
-          <a href="../src/menu.php">Menu</a>
-          <a href="../src/contact.html">Locate Us</a>
+          <a href="src/menu.php">Menu</a>
+          <a href="src/locate_us.html">Locate Us</a>
         </nav>
 
-        <div class="nav-right">   <!--this is to keep the icons flushed to the right side-->
-          <a href="../src/cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="nav-icon"></a>
-          <a href="../src/login.html"><img src="../assets/images/User_BB.png" alt="User" class="nav-icon"></a>
+        <div class="nav-icons">
+          <a href="src/cart.html"><img src="assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="src/login.html"><img src="assets/images/User_BB.png" alt="Login" class="icon"></a>
         </div>
       </div>
-    </header>
+     </header>
 
     <!-- CONTENT -->
 
     <!-- FOOTER -->
-    <footer class="footer">
+    <footer>
       <div class="footer-container">
-        <div><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Bountiful Bentos Logo" class="footer-logo"></div>
-        <div>
-          <h4>About Us</h4>
-          <ul><li>Our Team</li><li>Our Story</li></ul>
+        <div class="footer-column">
+          <img src="assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo">
         </div>
 
-        <div>
-          <h4>Support Us</h4>
-          <ul><li>Location</li><li>Contact</li><li>Join Us</li></ul>
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <a href="our_story.html">Our Story</a><br>
+          <a href="our_team.html">Our Team</a>
         </div>
 
-        <div>
-          <h4>Sign Up for Our Newsletter</h4>
-          <form id="newsletterForm">
-            <input type="email" placeholder="Email address" required>
-            <button type="submit">→</button>
+        <div class="footer-column">
+          <h3>Support Us</h3>
+          <a href="locate_us.html">Locate Us</a><br>
+          <a href="contact.html">Contact Us</a><br>
+          <a href="join_us.html">Join Us</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Sign Up for Our Newsletter</h3>
+          <p>Want to stay in the loop for our newest bentos with exclusive promo codes?</p>
+          <form>
+            <input type="email" placeholder="Your email here">
+            <button>→</button>
           </form>
         </div>
+      </div>
+
+      <div class="copywrite">
+        <br><p>© 2025 Koh Kai En Jonathan & Chye Qing Yi Adeline. All rights reserved. Bountiful Bentos Co.</p>
       </div>
     </footer>
 

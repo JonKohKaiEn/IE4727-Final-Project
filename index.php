@@ -39,36 +39,102 @@
       <div class="hero-text">
         <h1>Bountiful Bentos</h1>
         <p>Nutritious Bentos to Fuel Your Busy Days</p>
-        <button class="order-btn">Order Now</button>
+        <a href="src/menu.php"><button class="order-btn">Order Now</button></a>
       </div>
     </section>
 
     <!-- ===== PRODUCT CAROUSELS ===== -->
     <section class="carousel-section">
-      <h2>Offers</h2>
-      <div class="carousel" id="offers-carousel"></div>
+       <!-- === OFFERS === -->
+        <h2>Offers</h2>
+        <div class="carousel-center">
+          <div class="carousel" id="offers-carousel">
+            <?php
+              include_once __DIR__ . '/api/db_connect.php';
+              $offersQuery = "SELECT * FROM homeproducts WHERE id BETWEEN 1 AND 3";
+              $offersResult = $conn->query($offersQuery);
 
-      <h2>New</h2>
-      <div class="carousel" id="new-carousel"></div>
+              while ($offer = $offersResult->fetch_assoc()) {
+                echo "
+                  <div class='product-card'>
+                    <div class='card-image'>
+                      <img src='{$offer['image_url']}' alt='{$offer['name']}'>
+                    </div>
+                    <div class='card-info'>
+                      <p class='product-name'><strong>{$offer['name']}</strong></p>
+                      <p class='product-price'>\$ {$offer['price']}</p>
+                      <p class='product-desc'>{$offer['description']}</p>
+                    </div>
+                  </div>
+                ";
+              }
+            ?>
+          </div>
+        </div>
+
+        <!-- === NEW PRODUCTS === -->
+        <h2>New</h2>
+        <div class="carousel-container" id="new-container">
+          <button class="carousel-arrow left" onclick="scrollCarousel('new-carousel', -1)">&#10094;</button>
+
+          <div class="carousel" id="new-carousel">
+            <?php
+              $newQuery = "SELECT * FROM homeproducts WHERE id BETWEEN 4 AND 9";
+              $newResult = $conn->query($newQuery);
+
+              while ($new = $newResult->fetch_assoc()) {
+                echo "
+                  <div class='product-card'>
+                    <div class='card-image'>
+                      <img src='{$new['image_url']}' alt='{$new['name']}'>
+                    </div>
+                    <div class='card-info'>
+                      <p class='product-name'><strong>{$new['name']}</strong></p>
+                      <p class='product-price'>\$ {$new['price']}</p>
+                      <p class='product-desc'>{$new['description']}</p>
+                    </div>
+                  </div>
+                ";
+              }
+            ?>
+          </div>
+          <button class="carousel-arrow right" onclick="scrollCarousel('new-carousel', 1)">&#10095;</button>
+        </div>
     </section>
 
     <!-- ===== REVIEWS ===== -->
     <section class="reviews">
       <h2>What Our Customers Say</h2>
 
-      <div class="review-container">
-        <div class="review">
-          <q>Quick, affordable, and delicious. Love the variety!</q><br>
-          <strong>- Priya, NTU Year 3</strong>
+      <div class="review-carousel-container">
+        <button class="review-btn left" onclick="scrollReviews(-1)">&#10094;</button>
+
+        <div class="review-carousel" id="review-carousel">
+          <?php
+            include_once __DIR__ . '/api/db_connect.php';
+            $query = "SELECT name, rating, comment FROM reviews";
+            $result = $conn->query($query);
+
+            if ($result && $result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                echo "
+                <div class='review-card'>
+                  <table>
+                    <tr><td><strong>{$row['name']}</strong></td></tr>
+                    <tr><td>" . str_repeat('⭐', floor($row['rating'])) . "</td></tr>
+                    <tr><td><em>{$row['comment']}</em></td></tr>
+                  </table>
+                </div>";
+              }
+            } else {
+              echo "<p>No reviews yet.</p>";
+            }
+          ?>
         </div>
 
-        <div class="review">
-          <q>The bentos are super tasty and healthy! Perfect for my lunch breaks!</q><br>
-          <strong>- Alex, NTU Year 2</strong>
-        </div>
+        <button class="review-btn right" onclick="scrollReviews(1)">&#10095;</button>
       </div>
-
-      <div style="clear: both;"></div>
+      <script defer src="js/review-carousel.js"></script>
     </section>
 
 
