@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<td align='center' width='33%'>";
                 echo "<div class='menu-item'>";
                 if($item['image_url']) {
-                    echo "<img src='{$item['image_url']}' alt='{$item['name']}' style='width:200px;height:200px;'><br>";
+                    echo "<img src='../{$item['image_url']}' alt='{$item['name']}' style='width:200px;height:200px;'><br>";
                 }
                 echo "<h3>" . htmlspecialchars($item['name']) . "</h3>";
                 echo "<p>" . htmlspecialchars($item['description']) . "</p>";
@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "<form method='post' action=''>";
                 echo "<input type='hidden' name='item_name' value='" . htmlspecialchars($item['name']) . "'>";
                 echo "<input type='hidden' name='item_price' value='" . $item['price'] . "'>";
-                echo "<input type='hidden' name='item_image' value='" . $item['image_url'] . "'>";
+                echo "<input type='hidden' name='item_image' value='../{$item['image_url']}'>";
                 echo "<div class='quantity-controls'>";
                 echo "<button type='button' class='qty-btn-minus' onclick='decreaseQty(this)'>-</button>";
                 echo "<input type='number' name='quantity' value='0' min='0' class='qty-input'>";
