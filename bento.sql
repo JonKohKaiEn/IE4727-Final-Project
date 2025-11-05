@@ -64,3 +64,23 @@ CREATE TABLE newsletter_subscribers (
   subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- ORDERS TABLES
+CREATE TABLE IF NOT EXISTS orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  customer_name VARCHAR(120) NULL,
+  customer_email VARCHAR(255) NULL,
+  subtotal DECIMAL(10,2) NOT NULL,
+  gst DECIMAL(10,2) NOT NULL,
+  total DECIMAL(10,2) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS order_items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  order_id INT NOT NULL,
+  product_name VARCHAR(200) NOT NULL,
+  unit_price DECIMAL(10,2) NOT NULL,
+  quantity INT NOT NULL,
+  total_price DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES orders(id)
+);

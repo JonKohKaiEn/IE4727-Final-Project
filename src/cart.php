@@ -45,16 +45,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- NAVIGATION -->
     <header class="navbar">
       <div class="nav-container">
-        <a href="index.php"><img src="assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo"></a>
+        <a href="index.php"><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo"></a>
 
         <nav class="nav-links">
-          <a href="src/menu.php">Menu</a>
-          <a href="src/locate_us.html">Locate Us</a>
+          <a href="menu.php">Menu</a>
+          <a href="locate_us.html">Locate Us</a>
         </nav>
 
         <div class="nav-icons">
-          <a href="src/cart.html"><img src="assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
-          <a href="src/login.html"><img src="assets/images/User_BB.png" alt="Login" class="icon"></a>
+          <a href="cart.php"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
         </div>
       </div>
     </header>
@@ -62,6 +62,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- CART -->
     <section class="cart-container">
       <h2>My Cart</h2>
+      <?php
+      if (isset($_GET['order'])) {
+      	$status = $_GET['order'];
+      	if ($status === 'success') {
+      		echo '<div style="margin:10px 0;padding:12px;border-radius:6px;background:#e8f5e9;color:#256029;">Your order has been submitted successfully.</div>';
+      	} elseif ($status === 'error') {
+      		echo '<div style="margin:10px 0;padding:12px;border-radius:6px;background:#fdecea;color:#611a15;">There was an error submitting your order. Please try again.</div>';
+      	} elseif ($status === 'empty') {
+      		echo '<div style="margin:10px 0;padding:12px;border-radius:6px;background:#fff8e1;color:#7a4f01;">Your cart is empty.</div>';
+      	}
+      }
+      ?>
       <?php
       if(empty($_SESSION['cart'])) {
           echo '<div class="empty-cart"><p>Your cart is empty</p></div>';
@@ -93,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               return $carry;
           }, 0);
 
-          $gst = $subtotal * 0.07; // Changed from 0.09 to 0.07 to match GST rate
+          $gst = $subtotal * 0.09;
           $total = $subtotal + $gst;
 
           echo '<div class="total-section">';
@@ -101,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           echo '<p>Subtotal: $' . number_format($subtotal, 2) . '</p>';
           echo '<p>GST (9%): $' . number_format($gst, 2) . '</p>';
           echo '<p><strong>Total: $' . number_format($total, 2) . '</strong></p>';
-          echo '<form method="post" action="checkout.php">';
+          echo '<form method="post" action="../api/submit_order.php">';
           echo '<button type="submit" class="checkout-btn">Proceed to Checkout</button>';
           echo '</form>';
           echo '</div>';
@@ -113,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-column">
-          <img src="assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo">
+          <img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo">
         </div>
 
         <div class="footer-column">

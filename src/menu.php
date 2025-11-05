@@ -71,13 +71,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="../index.php"><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo"></a>
 
         <nav class="nav-links">
-          <a href="../src/menu.php">Menu</a>
-          <a href="../src/locate_us.html">Locate Us</a>
+          <a href="menu.php">Menu</a>
+          <a href="locate_us.html">Locate Us</a>
         </nav>
 
         <div class="nav-icons">
-          <a href="../src/cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
-          <a href="../src/login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
+          <a href="cart.php"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
         </div>
       </div>
     </header>
