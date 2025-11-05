@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bountiful Bentos Co.</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Concert+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css">
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="../index.php"><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo"></a>
+
+        <nav class="nav-links">
+          <a href="menu.php">Menu</a>
+          <a href="locate_us.html">Locate Us</a>
+        </nav>
+
+        <div class="nav-icons">
+          <a href="cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
+        </div>
+      </div>
+     </header>
+
+    <!-- CONTENT -->
+    <div class="contact-page">
+    <div class="contact-container">
+      <h1>Contact Us</h1>
+      <p>Catering for an event or have any questions? Drop us an enquiry and we will get back to you within 3 working days.</p>
+
+      <table>
+        <form id="contactForm">
+            <tr>
+                <td>Full Name</td>
+                <td><input type="text" id="contactName" placeholder="Full Name" required></td>
+            </tr>
+        
+            <tr>
+                <td>Email</td>
+                <td><input type="email" id="contactEmail" placeholder="Email" required></td>
+            </tr>
+        
+            <tr>
+                <td>Purpose of Enquiry:</td>
+                <td>
+                    <label><input type="radio" name="purpose" value="Catering" checked> Catering</label>
+                    <label><input type="radio" name="purpose" value="Career"> Career</label>
+                    <label><input type="radio" name="purpose" value="General Enquiries"> General Enquiries</label>
+                    <label><input type="radio" name="purpose" value="Others"> Others</label>
+                    <input type="text" id="purposeOther" placeholder="If Others, please specify">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Share Your Query</td>
+                <td><textarea id="message" placeholder="Your message here" required></textarea></td>
+            </tr>
+
+            <tr><button type="submit">Submit</button></tr>
+      </form>
+      </table>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <p id="popupMessage"></p>
+      <button id="popupClose">Close</button>
+    </div>
+  </div>
+
+  <script src="../js/contact-validation.js"></script>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo">
+        </div>
+
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <a href="our_story.html">Our Story</a><br>
+          <a href="our_team.html">Our Team</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Support Us</h3>
+          <a href="locate_us.html">Locate Us</a><br>
+          <a href="contact.html">Contact Us</a><br>
+          <a href="join_us.html">Join Us</a>
+        </div>
+
+        <div class="footer-column">
+          <h3>Sign Up for Our Newsletter</h3>
+          <p>Want to stay in the loop for our newest bentos with exclusive promo codes?</p>
+          <form id="newsletterForm">
+            <input type="email" id="newsletterEmail" placeholder="Your email here" required>
+              <button type="submit">→</button>
+          </form>
+
+          <!-- Popup Notification -->
+          <div id="popup" class="popup hidden">
+            <div class="popup-content">
+              <p id="popupMessage"></p>
+            </div>
+          </div>
+
+          <script>
+            document.getElementById("newsletterForm").addEventListener("submit", async function(e) {
+              e.preventDefault();
+
+              const email = document.getElementById("newsletterEmail").value;
+              const formData = new FormData();
+              formData.append("email", email);
+
+              const response = await fetch("../api/newsletter_signup.php", {
+                method: "POST",
+                body: formData
+              });
+              
+              const result = await response.json();
+              showPopup(result.message, result.success);
+
+              document.getElementById("newsletterEmail").value = "";
+            });
+
+            function showPopup(message, success) {
+              const popup = document.getElementById("popup");
+              const popupMessage = document.getElementById("popupMessage");
+
+              popupMessage.textContent = message;
+              popup.classList.remove("hidden", "error", "show");
+              if (!success) popup.classList.add("error");
+
+              setTimeout(() => popup.classList.add("show"), 50); // trigger transition
+              setTimeout(() => {
+              popup.classList.remove("show");
+              setTimeout(() => popup.classList.add("hidden"), 300);
+              }, 3000); // hides after 3 seconds
+            }
+          </script>
+        </div>
+      </div>
+
+      <div class="copywrite">
+        <br><p>© 2025 Koh Kai En Jonathan & Chye Qing Yi Adeline. All rights reserved. Bountiful Bentos Co.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
