@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- NAVIGATION -->
     <header class="navbar">
       <div class="nav-container">
-        <a href="index.php"><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo"></a>
+        <a href="../index.php"><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo"></a>
 
         <nav class="nav-links">
           <a href="menu.php">Menu</a>
