@@ -4,9 +4,7 @@
 .login-page {
   font-family: 'Poppins', sans-serif;
   background: #F2E8CF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   min-height: 80vh; /* leave room for navbar/footer */
   padding: 40px 0;
 }
@@ -18,17 +16,21 @@
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin: 0 auto;
+  text-align: left;
 }
 
 /* Tabs */
 .login-page .tabs {
-  display: flex;
-  justify-content: space-around;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
   margin-bottom: 20px;
 }
 
 .login-page .tab-btn {
-  flex: 1;
+  display: table-cell;
+  width: 50%;
   padding: 10px;
   cursor: pointer;
   border: none;
@@ -47,8 +49,7 @@
 }
 
 .login-page .tab-content.active {
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
 
 /* Inputs & buttons scoped */
@@ -62,6 +63,41 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-family: 'Noto Sans', sans-serif;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Password wrapper for show/hide button */
+.login-page .password-wrapper {
+  position: relative;
+  margin: 8px 0;
+}
+
+.login-page .password-wrapper input[type="password"],
+.login-page .password-wrapper input[type="text"] {
+  margin: 0;
+  padding-right: 70px;
+}
+
+.login-page .password-wrapper .toggle-password {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #2f6043;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.login-page .password-wrapper .toggle-password:hover {
+  color: #3e7b57;
+  background: transparent;
 }
 
 .login-page button {
@@ -79,8 +115,18 @@
   background: #3e7b57;
 }
 
+.login-page button.toggle-password {
+  background: transparent;
+  margin-top: 0;
+}
+
+.login-page button.toggle-password:hover {
+  background: transparent;
+}
+
 /* Labels & checkboxes */
 .login-page label {
+  display: block;
   font-size: 14px;
   color: #2f6043;
   margin: 5px 0;

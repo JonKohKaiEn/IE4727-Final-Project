@@ -3,9 +3,7 @@
 .contact-page {
   font-family: 'Noto Sans', sans-serif;
   background: #F2E8CF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   min-height: 80vh;
   padding: 40px 0;
 }
@@ -16,8 +14,9 @@
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+  margin: 0 auto;
+  display: block;
+  text-align: left;
 }
 
 .contact-container h1 {
@@ -38,8 +37,7 @@
 }
 
 .contact-container form {
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
 
 .contact-container input[type="text"],
@@ -55,6 +53,7 @@
   box-sizing: border-box;
   color: #333;
   background: #fff;
+  text-align: left;
 }
 
 .contact-container input[type="text"]::placeholder,
@@ -90,19 +89,17 @@
 }
 
 .radio-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  display: block;
   margin-bottom: 10px;
 }
 
 .radio-options label {
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  vertical-align: middle;
   font-size: 14px;
   color: #333;
   cursor: pointer;
-  margin: 0;
+  margin: 0 15px 0 0;
 }
 
 .radio-options input[type="radio"] {
@@ -167,8 +164,7 @@
 }
 
 .popup-content {
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
 
 .popup p {
@@ -186,7 +182,6 @@
   cursor: pointer;
   font-family: 'Noto Sans', sans-serif;
   font-size: 14px;
-  align-self: flex-start;
   margin-top: 5px;
 }
 
