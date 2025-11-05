@@ -1,0 +1,28 @@
+h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.team-members {
+    width: 824px;
+    margin: 0 auto;
+}
+.team-member {
+    float: left;
+    width: 400px;
+    margin-right: 24px;
+    text-align: center;
+}
+.team-member:last-child { margin-right: 0; }
+
+.team-members::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.team-member img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
