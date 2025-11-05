@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </nav>
 
         <div class="nav-icons">
-          <a href="../src/cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="../src/cart.php"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
           <a href="../src/login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
         </div>
       </div>
@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-column">
-          <img src="assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo">
+          <img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo">
         </div>
 
         <div class="footer-column">

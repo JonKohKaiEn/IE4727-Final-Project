@@ -1,0 +1,118 @@
+/* === LOGIN PAGE ONLY === */
+
+/* Wrap all login-specific content inside a container */
+.login-page {
+  font-family: 'Poppins', sans-serif;
+  background: #F2E8CF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* leave room for navbar/footer */
+  padding: 40px 0;
+}
+
+/* Login box */
+.login-page .login-container {
+  width: 400px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Tabs */
+.login-page .tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.login-page .tab-btn {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  background: #eee;
+  font-weight: bold;
+  color: #2f6043;
+}
+
+.login-page .tab-btn.active {
+  background: #2f6043;
+  color: #F2E8CF;
+}
+
+.login-page .tab-content {
+  display: none;
+}
+
+.login-page .tab-content.active {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs & buttons scoped */
+.login-page input[type="text"],
+.login-page input[type="password"],
+.login-page input[type="email"],
+.login-page input[type="tel"],
+.login-page input[type="date"] {
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-page button {
+  background: #2f6043;
+  color: #F2E8CF;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.login-page button:hover {
+  background: #3e7b57;
+}
+
+/* Labels & checkboxes */
+.login-page label {
+  font-size: 14px;
+  color: #2f6043;
+  margin: 5px 0;
+}
+
+/* === POPUP FOR LOGIN/SIGNUP === */
+#authPopup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #fff;
+  border: 2px solid #2f6043;
+  border-radius: 10px;
+  padding: 15px 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 9999;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(-20px);
+  color: #2f6043;
+}
+
+#authPopup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#authPopup.error {
+  border-color: #BC4749;
+  color: #BC4749;
+}
+
+#authPopup.hidden {
+  display: none;
+}

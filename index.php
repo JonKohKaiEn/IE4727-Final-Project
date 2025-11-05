@@ -152,15 +152,15 @@
 
         <div class="footer-column">
           <h3>About Us</h3>
-          <a href="our_story.html">Our Story</a><br>
-          <a href="our_team.html">Our Team</a>
+          <a href="src/our_story.html">Our Story</a><br>
+          <a href="src/our_team.html">Our Team</a>
         </div>
 
         <div class="footer-column">
           <h3>Support Us</h3>
-          <a href="locate_us.html">Locate Us</a><br>
-          <a href="contact.html">Contact Us</a><br>
-          <a href="join_us.html">Join Us</a>
+          <a href="src/locate_us.html">Locate Us</a><br>
+          <a href="src/contact.html">Contact Us</a><br>
+          <a href="src/join_us.html">Join Us</a>
         </div>
 
         <div class="footer-column">
