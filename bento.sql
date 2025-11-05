@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS homeproducts;
 CREATE TABLE homeproducts (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(120) NOT NULL,
-  category ENUM('classic','classic') NOT NULL,
+  category ENUM('promotion','classic','sides','drinks','desserts') NOT NULL,
   price DECIMAL(7,2) NOT NULL,
   description TEXT,
   image_url VARCHAR(255) DEFAULT NULL
@@ -26,21 +26,21 @@ INSERT INTO homeproducts (name, category, price, description, image_url) VALUES
 ('Pork Sukiyaki Bento','classic',7.20,'Pork slices simmered in sweet soy sauce, rice, tofu, and vegetables','assets/images/mains/Classic_PorkSukiyaki.jpg'),
 ('Spicy Miso Veggie Bento','classic',8.00,'Miso-marinated vegetables with kimchi and rice','assets/images/mains/Classic_MisoVeg.png'),
 
-('Spicy Cucumber Salad','side',4.50,'Diced cucumber marinated in chilli oil, soy sauce and diced garlic','assets/images/sides/Sides_SpicyCucumber.jpg'),
-('Golden Enoki','side',5.00,'Battered enoki deep-fried to golden perfection. Served with choice of mentaiko sauce or wasabi mayo','assets/images/sides/Sides_GoldenEnoki.jpg'),
-('Onsen Egg','side',2.00,'Half-boiled egg in light soy sauce','assets/images/sides/Sides_OnsenEgg.jpg'),
-('Tamagoyaki','side',3.50,'Fluffy, sweet egg rolls','assets/images/sides/Sides_Tamago.jpg'),
+('Spicy Cucumber Salad','sides',4.50,'Diced cucumber marinated in chilli oil, soy sauce and diced garlic','assets/images/sides/Sides_SpicyCucumber.jpg'),
+('Golden Enoki','sides',5.00,'Battered enoki deep-fried to golden perfection. Served with choice of mentaiko sauce or wasabi mayo','assets/images/sides/Sides_GoldenEnoki.jpg'),
+('Onsen Egg','sides',2.00,'Half-boiled egg in light soy sauce','assets/images/sides/Sides_OnsenEgg.jpg'),
+('Tamagoyaki','sides',3.50,'Fluffy, sweet egg rolls','assets/images/sides/Sides_Tamago.jpg'),
 
-('Matcha Green Tea','drink',3.50,'Ceremonial-grade matcha','assets/images/drinks/Drinks_Matcha.jpg'),
-('Matcha Latte','drink',4.50,'Ceremonial-grade matcha with whole milk','assets/images/drinks/Drinks_MatchaLatte.jpg'),
-('Hojicha Latte','drink',4.50,'Ceremonial-grade hojicha with whole milk','assets/images/drinks/Drinks_HojichaLatte.jpg'),
-('Calpis Soda','drink',3.50,'Refreshing fizzy yoghurt drink','assets/images/drinks/Drinks_Calpis.jpg'),
-('Cafe Au Lait','drink',3.50,'Milk coffee','assets/images/drinks/Drinks_CafeAuLait.jpg'),
-('Cold Brew','drink',3.50,'Black coffee from beans steeped in cold water','assets/images/drinks/Drinks_BlackCoffee.jpg'),
+('Matcha Green Tea','drinks',3.50,'Ceremonial-grade matcha','assets/images/drinks/Drinks_Matcha.jpg'),
+('Matcha Latte','drinks',4.50,'Ceremonial-grade matcha with whole milk','assets/images/drinks/Drinks_MatchaLatte.jpg'),
+('Hojicha Latte','drinks',4.50,'Ceremonial-grade hojicha with whole milk','assets/images/drinks/Drinks_HojichaLatte.jpg'),
+('Calpis Soda','drinks',3.50,'Refreshing fizzy yoghurt drink','assets/images/drinks/Drinks_Calpis.jpg'),
+('Cafe Au Lait','drinks',3.50,'Milk coffee','assets/images/drinks/Drinks_CafeAuLait.jpg'),
+('Cold Brew','drinks',3.50,'Black coffee from beans steeped in cold water','assets/images/drinks/Drinks_BlackCoffee.jpg'),
 
-('Ice Cream Mochi (3 pcs)','dessert',6.90,'Beat the heat with our ice cream mochis','assets/images/desserts/Desserts_Mochi.jpg'),
-('Strawberry Daifuku (3 pcs)','dessert',6.00,'Tangy, whole strawberries encased in sweet red bean and chewy mochi','assets/images/desserts/Desserts_StrawberryDaifuku.jpg'),
-('Matcha Crepe Cake','dessert',6.90,'Matcha crepe cake layered with light cream. Topped with house-made strawberry jam','assets/images/desserts/Desserts_CrepeCake.jpg');
+('Ice Cream Mochi (3 pcs)','desserts',6.90,'Beat the heat with our ice cream mochis','assets/images/desserts/Desserts_Mochi.jpg'),
+('Strawberry Daifuku (3 pcs)','desserts',6.00,'Tangy, whole strawberries encased in sweet red bean and chewy mochi','assets/images/desserts/Desserts_StrawberryDaifuku.jpg'),
+('Matcha Crepe Cake','desserts',6.90,'Matcha crepe cake layered with light cream. Topped with house-made strawberry jam','assets/images/desserts/Desserts_CrepeCake.jpg');
 
 -- REVIEWS TABLE
 DROP TABLE IF EXISTS reviews;
