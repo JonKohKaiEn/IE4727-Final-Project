@@ -71,12 +71,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="../index.php"><img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo"></a>
 
         <nav class="nav-links">
-          <a href="../src/menu.php">Menu</a>
-          <a href="../src/locate_us.html">Locate Us</a>
+          <a href="menu.php">Menu</a>
+          <a href="locate_us.html">Locate Us</a>
         </nav>
 
         <div class="nav-icons">
-          <a href="../src/cart.php"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="../src/cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
           <a href="../src/login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
         </div>
       </div>
@@ -253,14 +253,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       });
 
       function increaseQty(btn) {
-          const input = btn.nextElementSibling;
-          input.value = parseInt(input.value) + 1;
+          const container = btn.parentElement;
+          const input = container.querySelector('.qty-input');
+          input.value = parseInt(input.value || '0') + 1;
       }
 
       function decreaseQty(btn) {
-          const input = btn.nextElementSibling;
-          if(parseInt(input.value) > 0) {
-              input.value = parseInt(input.value) - 1;
+          const container = btn.parentElement;
+          const input = container.querySelector('.qty-input');
+          const current = parseInt(input.value || '0');
+          if(current > 0) {
+              input.value = current - 1;
           }
       }
     </script>
