@@ -1,3 +1,27 @@
+// Show/hide "If Others" input based on radio selection
+document.querySelectorAll('input[name="purpose"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    const purposeOther = document.getElementById("purposeOther");
+    if (this.value === "Others") {
+      purposeOther.classList.add("show");
+      purposeOther.required = true;
+    } else {
+      purposeOther.classList.remove("show");
+      purposeOther.required = false;
+      purposeOther.value = "";
+    }
+  });
+});
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", function() {
+  const purposeOther = document.getElementById("purposeOther");
+  const othersRadio = document.querySelector('input[name="purpose"][value="Others"]');
+  if (othersRadio && !othersRadio.checked) {
+    purposeOther.classList.remove("show");
+  }
+});
+
 document.getElementById("contactForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const errors = [];
@@ -41,14 +65,24 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
 function showPopup(message, success) {
   const popup = document.getElementById("popup");
   const msg = document.getElementById("popupMessage");
-  popup.classList.remove("hidden", "error");
+  popup.classList.remove("hidden", "error", "show");
   msg.innerText = message;
   if (!success) popup.classList.add("error");
 
-  // Show popup
-  popup.classList.remove("hidden");
+  // Show popup with animation
+  setTimeout(() => popup.classList.add("show"), 50);
+  
+  // Auto-hide after 3 seconds or on close button click
+  const closeBtn = document.getElementById("popupClose");
+  if (closeBtn) {
+    closeBtn.onclick = () => {
+      popup.classList.remove("show");
+      setTimeout(() => popup.classList.add("hidden"), 300);
+    };
+  }
 
-  document.getElementById("popupClose").onclick = () => {
-    popup.classList.add("hidden");
-  };
+  setTimeout(() => {
+    popup.classList.remove("show");
+    setTimeout(() => popup.classList.add("hidden"), 300);
+  }, 3000);
 }

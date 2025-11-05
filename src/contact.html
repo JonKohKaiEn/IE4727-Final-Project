@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Concert+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/contact.css">
   </head>
   <body>
     <!-- NAVIGATION -->
@@ -31,43 +32,30 @@
 
     <!-- CONTENT -->
     <div class="contact-page">
-    <div class="contact-container">
-      <h1>Contact Us</h1>
-      <p>Catering for an event or have any questions? Drop us an enquiry and we will get back to you within 3 working days.</p>
+      <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p>Catering for an event or have any questions? Drop us an enquiry and we will get back to you within 3 working days.</p>
 
-      <table>
         <form id="contactForm">
-            <tr>
-                <td>Full Name</td>
-                <td><input type="text" id="contactName" placeholder="Full Name" required></td>
-            </tr>
-        
-            <tr>
-                <td>Email</td>
-                <td><input type="email" id="contactEmail" placeholder="Email" required></td>
-            </tr>
-        
-            <tr>
-                <td>Purpose of Enquiry:</td>
-                <td>
-                    <label><input type="radio" name="purpose" value="Catering" checked> Catering</label>
-                    <label><input type="radio" name="purpose" value="Career"> Career</label>
-                    <label><input type="radio" name="purpose" value="General Enquiries"> General Enquiries</label>
-                    <label><input type="radio" name="purpose" value="Others"> Others</label>
-                    <input type="text" id="purposeOther" placeholder="If Others, please specify">
-                </td>
-            </tr>
+          <input type="text" id="contactName" placeholder="Full Name" required>
+          <input type="email" id="contactEmail" placeholder="Email" required>
+          
+          <div class="radio-group">
+            <label class="radio-label">Purpose of Enquiry:</label>
+            <div class="radio-options">
+              <label><input type="radio" name="purpose" value="Catering" checked> Catering</label>
+              <label><input type="radio" name="purpose" value="Career"> Career</label>
+              <label><input type="radio" name="purpose" value="General Enquiries"> General Enquiries</label>
+              <label><input type="radio" name="purpose" value="Others"> Others</label>
+            </div>
+            <input type="text" id="purposeOther" placeholder="If Others, please specify" class="purpose-other">
+          </div>
 
-            <tr>
-                <td>Share Your Query</td>
-                <td><textarea id="message" placeholder="Your message here" required></textarea></td>
-            </tr>
-
-            <tr><button type="submit">Submit</button></tr>
-      </form>
-      </table>
+          <textarea id="message" placeholder="Share Your Query" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
-  </div>
 
   <!-- Popup -->
   <div id="popup" class="popup hidden">

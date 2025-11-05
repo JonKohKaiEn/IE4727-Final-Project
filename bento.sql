@@ -99,3 +99,14 @@ CREATE TABLE IF NOT EXISTS order_items (
   total_price DECIMAL(10,2) NOT NULL,
   FOREIGN KEY (order_id) REFERENCES orders(id)
 );
+
+-- CONTACT SUBMISSIONS TABLE
+DROP TABLE IF EXISTS contact_submissions;
+CREATE TABLE contact_submissions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  purpose VARCHAR(100) NOT NULL,
+  message TEXT NOT NULL,
+  submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,4 +1,6 @@
 <?php
+require_once 'db_connect.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
     $email = trim($_POST['email'] ?? '');
@@ -17,17 +19,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $to = "f31ee@localhost";
-    $subject = "Contact Us Enquiry: $purpose";
-    $body = "Name: $name\nEmail: $email\nPurpose: $purpose\nMessage:\n$message";
+    // Store in database instead of sending email
+    $stmt = $conn->prepare("INSERT INTO contact_submissions (name, email, purpose, message) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $name, $email, $purpose, $message);
 
-    $headers = "From: $email";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Your enquiry has been submitted successfully!";
+    if ($stmt->execute()) {
+        echo "Your enquiry has been submitted successfully! We will get back to you within 3 working days.";
     } else {
         echo "Failed to submit your enquiry. Please try again later.";
     }
+
+    $stmt->close();
+    $conn->close();
 } else {
     echo "Invalid request.";
 }
