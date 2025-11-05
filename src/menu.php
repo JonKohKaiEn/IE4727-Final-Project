@@ -160,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-column">
-          <img src="assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo">
+          <img src="../assets/images/BountifulBentos_Logo_Cream.png" alt="Logo" class="logo">
         </div>
 
         <div class="footer-column">
@@ -253,14 +253,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       });
 
       function increaseQty(btn) {
-          const input = btn.nextElementSibling;
-          input.value = parseInt(input.value) + 1;
+          const container = btn.parentElement;
+          const input = container.querySelector('.qty-input');
+          input.value = parseInt(input.value || '0') + 1;
       }
 
       function decreaseQty(btn) {
-          const input = btn.nextElementSibling;
-          if(parseInt(input.value) > 0) {
-              input.value = parseInt(input.value) - 1;
+          const container = btn.parentElement;
+          const input = container.querySelector('.qty-input');
+          const current = parseInt(input.value || '0');
+          if(current > 0) {
+              input.value = current - 1;
           }
       }
     </script>
