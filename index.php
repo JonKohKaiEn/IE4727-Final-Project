@@ -166,9 +166,9 @@
         <div class="footer-column">
           <h3>Sign Up for Our Newsletter</h3>
           <p>Want to stay in the loop for our newest bentos with exclusive promo codes?</p>
-          <form>
+          <form id="newsletterForm">
             <input type="email" id="newsletterEmail" placeholder="Your email here" required>
-            <button type="submit">→</button>
+              <button type="submit">→</button>
           </form>
 
           <!-- Popup Notification -->
@@ -177,26 +177,40 @@
               <p id="popupMessage"></p>
             </div>
           </div>
-          
-          <p id="newsletterMessage"></p>
 
           <script>
             document.getElementById("newsletterForm").addEventListener("submit", async function(e) {
-            e.preventDefault();
+              e.preventDefault();
 
-            const email = document.getElementById("newsletterEmail").value;
-            const formData = new FormData();
-            formData.append("email", email);
+              const email = document.getElementById("newsletterEmail").value;
+              const formData = new FormData();
+              formData.append("email", email);
 
-            const response = await fetch("api/newsletter_signup.php", {
-              method: "POST",
-              body: formData
+              const response = await fetch("api/newsletter_signup.php", {
+                method: "POST",
+                body: formData
+              });
+              
+              const result = await response.json();
+              showPopup(result.message, result.success);
+
+              document.getElementById("newsletterEmail").value = "";
             });
 
-            const result = await response.json();
-            document.getElementById("newsletterMessage").textContent = result.message;
-            document.getElementById("newsletterEmail").value = "";
-            });
+            function showPopup(message, success) {
+              const popup = document.getElementById("popup");
+              const popupMessage = document.getElementById("popupMessage");
+
+              popupMessage.textContent = message;
+              popup.classList.remove("hidden", "error", "show");
+              if (!success) popup.classList.add("error");
+
+              setTimeout(() => popup.classList.add("show"), 50); // trigger transition
+              setTimeout(() => {
+              popup.classList.remove("show");
+              setTimeout(() => popup.classList.add("hidden"), 300);
+              }, 3000); // hides after 3 seconds
+            }
           </script>
         </div>
       </div>
