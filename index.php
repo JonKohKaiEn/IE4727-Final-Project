@@ -27,8 +27,8 @@
         </nav>
 
         <div class="nav-icons">
-          <a href="src/cart.html"><img src="assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
-          <a href="src/login.html"><img src="assets/images/User_BB.png" alt="Login" class="icon"></a>
+          <a href="src/cart.php"><img src="assets/images/Cart_BB.png" alt="Cart"></a>
+          <a href="src/login.html"><img src="assets/images/User_BB.png" alt="Login"></a>
         </div>
       </div>
      </header>
@@ -111,25 +111,30 @@
 
         <div class="review-carousel" id="review-carousel">
           <?php
-            include_once __DIR__ . '/api/db_connect.php';
-            $query = "SELECT name, rating, comment FROM reviews";
-            $result = $conn->query($query);
-
-            if ($result && $result->num_rows > 0) {
-              while ($row = $result->fetch_assoc()) {
-                echo "
-                <div class='review-card'>
-                  <table>
-                    <tr><td><strong>{$row['name']}</strong></td></tr>
-                    <tr><td>" . str_repeat('⭐', floor($row['rating'])) . "</td></tr>
-                    <tr><td><em>{$row['comment']}</em></td></tr>
-                  </table>
-                </div>";
-              }
-            } else {
-              echo "<p>No reviews yet.</p>";
-            }
-          ?>
+          include_once __DIR__ . '/api/db_connect.php';
+          $query = "SELECT name, rating, comment FROM reviews";
+          $result = $conn->query($query);
+          
+          if ($result && $result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              $stars = str_repeat('⭐', floor($row['rating']));
+              echo "
+              <div class='review-card'>
+              <table class='review-table'>
+              <tr>
+                <td class='rating-cell'>{$stars}</td>
+              </tr>
+              <tr>
+                <td class='username-cell'><strong>{$row['name']}</strong></td>
+                <td class='comment-cell'><em>{$row['comment']}</em></td>
+              </tr>
+            </table>
+          </div>";
+        }
+      } else {
+        echo "<p>No reviews yet.</p>";
+      }
+      ?>
         </div>
 
         <button class="review-btn right" onclick="scrollReviews(1)">&#10095;</button>
@@ -162,9 +167,37 @@
           <h3>Sign Up for Our Newsletter</h3>
           <p>Want to stay in the loop for our newest bentos with exclusive promo codes?</p>
           <form>
-            <input type="email" placeholder="Your email here">
-            <button>→</button>
+            <input type="email" id="newsletterEmail" placeholder="Your email here" required>
+            <button type="submit">→</button>
           </form>
+
+          <!-- Popup Notification -->
+          <div id="popup" class="popup hidden">
+            <div class="popup-content">
+              <p id="popupMessage"></p>
+            </div>
+          </div>
+          
+          <p id="newsletterMessage"></p>
+
+          <script>
+            document.getElementById("newsletterForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById("newsletterEmail").value;
+            const formData = new FormData();
+            formData.append("email", email);
+
+            const response = await fetch("api/newsletter_signup.php", {
+              method: "POST",
+              body: formData
+            });
+
+            const result = await response.json();
+            document.getElementById("newsletterMessage").textContent = result.message;
+            document.getElementById("newsletterEmail").value = "";
+            });
+          </script>
         </div>
       </div>
 

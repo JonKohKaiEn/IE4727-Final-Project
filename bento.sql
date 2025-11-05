@@ -13,7 +13,6 @@ CREATE TABLE homeproducts (
 );
 
 INSERT INTO homeproducts (name, category, price, description, image_url) VALUES
---Mains
 ('Teriyaki Chicken Bento','classic',6.50,'Grilled chicken in teriyaki glaze, steamed rice, pickles, salad','assets/images/mains/Classic_TeriyakiChicken.jpg'),
 ('Salmon Mentaiko Bento','classic',8.50,'Seared salmon with furikake rice, miso soup and vegetables','assets/images/mains/Classic_SalmonMentai.jpg'),
 ('Tofu Veggie Bento','classic',5.60,'Crispy tofu, edamame, quinoa, sesame dressing','assets/images/mains/Classic_TofuVeg.png'),
@@ -27,13 +26,11 @@ INSERT INTO homeproducts (name, category, price, description, image_url) VALUES
 ('Pork Sukiyaki Bento','classic',7.20,'Pork slices simmered in sweet soy sauce, rice, tofu, and vegetables','assets/images/mains/Classic_PorkSukiyaki.jpg'),
 ('Spicy Miso Veggie Bento','classic',8.00,'Miso-marinated vegetables with kimchi and rice','assets/images/mains/Classic_MisoVeg.png'),
 
---Sides
 ('Spicy Cucumber Salad','side',4.50,'Diced cucumber marinated in chilli oil, soy sauce and diced garlic','assets/images/sides/Sides_SpicyCucumber.jpg'),
 ('Golden Enoki','side',5.00,'Battered enoki deep-fried to golden perfection. Served with choice of mentaiko sauce or wasabi mayo','assets/images/sides/Sides_GoldenEnoki.jpg'),
 ('Onsen Egg','side',2.00,'Half-boiled egg in light soy sauce','assets/images/sides/Sides_OnsenEgg.jpg'),
 ('Tamagoyaki','side',3.50,'Fluffy, sweet egg rolls','assets/images/sides/Sides_Tamago.jpg'),
 
---Drinks
 ('Matcha Green Tea','drink',3.50,'Ceremonial-grade matcha','assets/images/drinks/Drinks_Matcha.jpg'),
 ('Matcha Latte','drink',4.50,'Ceremonial-grade matcha with whole milk','assets/images/drinks/Drinks_MatchaLatte.jpg'),
 ('Hojicha Latte','drink',4.50,'Ceremonial-grade hojicha with whole milk','assets/images/drinks/Drinks_HojichaLatte.jpg'),
@@ -41,7 +38,6 @@ INSERT INTO homeproducts (name, category, price, description, image_url) VALUES
 ('Cafe Au Lait','drink',3.50,'Milk coffee','assets/images/drinks/Drinks_CafeAuLait.jpg'),
 ('Cold Brew','drink',3.50,'Black coffee from beans steeped in cold water','assets/images/drinks/Drinks_BlackCoffee.jpg'),
 
---Desserts
 ('Ice Cream Mochi (3 pcs)','dessert',6.90,'Beat the heat with our ice cream mochis','assets/images/desserts/Desserts_Mochi.jpg'),
 ('Strawberry Daifuku (3 pcs)','dessert',6.00,'Tangy, whole strawberries encased in sweet red bean and chewy mochi','assets/images/desserts/Desserts_StrawberryDaifuku.jpg'),
 ('Matcha Crepe Cake','dessert',6.90,'Matcha crepe cake layered with light cream. Topped with house-made strawberry jam','assets/images/desserts/Desserts_CrepeCake.jpg');
@@ -57,7 +53,14 @@ CREATE TABLE reviews (
 );
 
 INSERT INTO reviews (name, rating, comment, avatar_url) VALUES
-('Samantha',5,'Absolutely delicious! Great value for money.','assets/images/#'),
-('Marcus',4,'The bentos taste great and the portions are generous.','assets/images/#'),
-('Priya',5,'Loved the variety and the freshness!','assets/images/#'),
-('Jin',4,'The spicy miso is my go-to. Would love more sides!','assets/images/#');
+('Samantha',5,'Absolutely delicious! Great value for money.','assets/images/User_Samantha.jpg'),
+('Marcus',4,'The bentos taste great and the portions are generous.','assets/images/User_Marcus.jpg'),
+('Priya',5,'Loved the variety and the freshness!','assets/images/User_Priya.jpg'),
+('Jin',4,'The spicy miso is my go-to. Would love more sides!','assets/images/User_Jin.jpg');
+
+CREATE TABLE newsletter_subscribers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
