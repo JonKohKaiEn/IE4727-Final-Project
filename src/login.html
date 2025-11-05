@@ -21,7 +21,7 @@
 
         <nav class="nav-links">
           <a href="menu.php">Menu</a>
-          <a href="locate_us.html">Locate Us</a>
+          <a href="contact.html">Contact Us</a>
         </nav>
 
         <div class="nav-icons">
@@ -74,48 +74,48 @@
       </div>
     </div>
 
-<!-- POPUP -->
-<div id="popup" class="popup hidden">
-  <div class="popup-content">
-    <span id="closePopup" style="cursor:pointer; float:right;">&times;</span>
-    <p id="popupMessage"></p>
-  </div>
-</div>
+    <!-- POPUP -->
+    <div id="popup" class="popup hidden">
+      <div class="popup-content">
+        <span id="closePopup" style="cursor:pointer; float:right;">&times;</span>
+        <p id="popupMessage"></p>
+      </div>
+    </div>
 
-<script src="../js/login-validation.js"></script>
-<script src="../js/signup-validation.js"></script>
+    <script src="../js/login-validation.js"></script>
+    <script src="../js/signup-validation.js"></script>
 
-<script>
-    // Tab switching
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(f => f.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelector(`.tab-content[data-tab="${btn.dataset.tab}"]`).classList.add('active');
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(f => f.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelector(`.tab-content[data-tab="${btn.dataset.tab}"]`).classList.add('active');
+            });
         });
-    });
 
-    // Popup close
-    document.getElementById("closePopup").addEventListener("click", () => {
-        const popup = document.getElementById("popup");
-        popup.classList.add("hidden");
-    });
-
-    // Toggle show/hide passwords
-    document.querySelectorAll(".toggle-password").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const input = btn.previousElementSibling;
-            if (input.type === "password") {
-                input.type = "text";
-                btn.textContent = "Hide";
-            } else {
-                input.type = "password";
-                btn.textContent = "Show";
-            }
+        // Popup close
+        document.getElementById("closePopup").addEventListener("click", () => {
+            const popup = document.getElementById("popup");
+            popup.classList.add("hidden");
         });
-    });
-</script>
+
+        // Toggle show/hide passwords
+        document.querySelectorAll(".toggle-password").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const input = btn.previousElementSibling;
+                if (input.type === "password") {
+                    input.type = "text";
+                    btn.textContent = "Hide";
+                } else {
+                    input.type = "password";
+                    btn.textContent = "Show";
+                }
+            });
+        });
+    </script>
 
     <!-- FOOTER -->
     <footer>
@@ -132,9 +132,7 @@
 
         <div class="footer-column">
           <h3>Support Us</h3>
-          <a href="locate_us.html">Locate Us</a><br>
           <a href="contact.html">Contact Us</a><br>
-          <a href="join_us.html">Join Us</a>
         </div>
 
         <div class="footer-column">

@@ -23,7 +23,7 @@
 
         <nav class="nav-links">
           <a href="src/menu.php">Menu</a>
-          <a href="src/locate_us.html">Locate Us</a>
+          <a href="src/contact.html">Contact Us</a>
         </nav>
 
         <div class="nav-icons">
@@ -158,9 +158,7 @@
 
         <div class="footer-column">
           <h3>Support Us</h3>
-          <a href="src/locate_us.html">Locate Us</a><br>
           <a href="src/contact.html">Contact Us</a><br>
-          <a href="src/join_us.html">Join Us</a>
         </div>
 
         <div class="footer-column">

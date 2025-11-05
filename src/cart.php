@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <nav class="nav-links">
           <a href="menu.php">Menu</a>
-          <a href="locate_us.html">Locate Us</a>
+          <a href="contact.html">Contact Us</a>
         </nav>
 
         <div class="nav-icons">
@@ -136,9 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="footer-column">
           <h3>Support Us</h3>
-          <a href="locate_us.html">Locate Us</a><br>
           <a href="contact.html">Contact Us</a><br>
-          <a href="join_us.html">Join Us</a>
         </div>
 
         <div class="footer-column">

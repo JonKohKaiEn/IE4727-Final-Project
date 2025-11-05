@@ -13,6 +13,11 @@ CREATE TABLE homeproducts (
 );
 
 INSERT INTO homeproducts (name, category, price, description, image_url) VALUES
+('Tempura Bento','promotion',8.50,'Ebi tempura fried golden, rice, miso soup and vegetables','assets/images/mains/Classic_EbiTemp.jpg'),
+('Golden Enoki','promotion',5.00,'Battered enoki deep-fried to golden perfection. Served with choice of mentaiko sauce or wasabi mayo','assets/images/sides/Sides_GoldenEnoki.jpg'),
+('Matcha Latte','promotion',4.50,'Ceremonial-grade matcha with whole milk','assets/images/drinks/Drinks_MatchaLatte.jpg'),
+('Strawberry Daifuku (3 pcs)','promotion',6.00,'Tangy, whole strawberries encased in sweet red bean and chewy mochi','assets/images/desserts/Desserts_StrawberryDaifuku.jpg'),
+
 ('Teriyaki Chicken Bento','classic',6.50,'Grilled chicken in teriyaki glaze, steamed rice, pickles, salad','assets/images/mains/Classic_TeriyakiChicken.jpg'),
 ('Salmon Mentaiko Bento','classic',8.50,'Seared salmon with furikake rice, miso soup and vegetables','assets/images/mains/Classic_SalmonMentai.jpg'),
 ('Tofu Veggie Bento','classic',5.60,'Crispy tofu, edamame, quinoa, sesame dressing','assets/images/mains/Classic_TofuVeg.png'),

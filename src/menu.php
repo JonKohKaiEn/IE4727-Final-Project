@@ -72,12 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <nav class="nav-links">
           <a href="menu.php">Menu</a>
-          <a href="locate_us.html">Locate Us</a>
+          <a href="contact.html">Contact Us</a>
         </nav>
 
         <div class="nav-icons">
-          <a href="../src/cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
-          <a href="../src/login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
+          <a href="cart.php"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
         </div>
       </div>
     </header>
@@ -171,9 +171,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="footer-column">
           <h3>Support Us</h3>
-          <a href="locate_us.html">Locate Us</a><br>
           <a href="contact.html">Contact Us</a><br>
-          <a href="join_us.html">Join Us</a>
         </div>
 
         <div class="footer-column">
