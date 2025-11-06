@@ -34,7 +34,13 @@ if ($total <= 0) {
 
 // Optional: fetch basic customer info from POST if added later
 $customer_name = isset($_POST['customer_name']) ? trim($_POST['customer_name']) : null;
-$customer_email = isset($_POST['customer_email']) ? trim($_POST['customer_email']) : null;
+$customer_email = isset($_POST['email']) ? trim($_POST['email']) : null;
+
+// Validate email
+if (!$customer_email || !filter_var($customer_email, FILTER_VALIDATE_EMAIL)) {
+    header('Location: ../src/checkout.php?error=invalid_email');
+    exit;
+}
 
 // Use a transaction to ensure consistency
 $conn->begin_transaction();
