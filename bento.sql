@@ -115,3 +115,31 @@ CREATE TABLE contact_submissions (
   message TEXT NOT NULL,
   submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE vouchers (
+    voucher_id INT PRIMARY KEY AUTO_INCREMENT,
+    vouchername VARCHAR(100) NOT NULL,
+    type VARCHAR(50) NOT NULL,
+    discountvalue DECIMAL(4,2) NOT NULL,
+    min_spend DECIMAL(10,2) NOT NULL,
+    valid_from DATE NOT NULL,
+    valid_until DATE NOT NULL
+);
+
+CREATE TABLE ewallet (
+    wallet_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    voucher_id INT NOT NULL,
+    claimed_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    is_used BOOLEAN DEFAULT FALSE,
+    used_date DATETIME,
+    FOREIGN KEY (user_id) REFERENCES members(member_id),
+    FOREIGN KEY (voucher_id) REFERENCES vouchers(voucher_id)
+);
+
+-- Insert sample vouchers
+INSERT INTO vouchers (vouchername, type, discountvalue, min_spend, valid_from, valid_until)
+VALUES 
+('Weekly Special 20% Off', 'percentage', 0.20, 6.00, CURRENT_DATE, DATE_ADD(CURRENT_DATE, INTERVAL 7 DAY)),
+('Lunch Special 10% Off', 'percentage', 0.10, 5.00, CURRENT_DATE, DATE_ADD(CURRENT_DATE, INTERVAL 7 DAY)),
+('Bento Set $5 Off', 'number', 5.00, 15.00, CURRENT_DATE, DATE_ADD(CURRENT_DATE, INTERVAL 7 DAY));

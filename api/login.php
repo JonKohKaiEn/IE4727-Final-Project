@@ -2,6 +2,16 @@
 session_start();
 include_once 'db_connect.php';
 
+if ($result->num_rows === 1) {
+    $row = $result->fetch_assoc();
+    $_SESSION['user'] = [
+        'id' => $row['member_id'],
+        'username' => $row['username']
+    ];
+    header("Location: ../src/member.php");  // Changed from member.html to member.php
+    exit();
+}
+
 if (!isset($_SESSION['login_attempts'])) {
     $_SESSION['login_attempts'] = 0;
 }

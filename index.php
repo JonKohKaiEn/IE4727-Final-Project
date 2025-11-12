@@ -24,6 +24,7 @@
         <nav class="nav-links">
           <a href="src/menu.php">Menu</a>
           <a href="src/contact.html">Contact Us</a>
+          <a href="src/admin.html">Admin</a>
         </nav>
 
         <div class="nav-icons">

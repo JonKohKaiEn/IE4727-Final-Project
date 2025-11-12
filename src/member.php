@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: login.html");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,8 +16,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Concert+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/contact.css">
+    <link rel="stylesheet" href="../styles/member.css">
   </head>
   <body>
     <!-- NAVIGATION -->
@@ -21,52 +29,45 @@
         <nav class="nav-links">
           <a href="menu.php">Menu</a>
           <a href="contact.html">Contact Us</a>
-          <a href="admin.html">Admin</a>
         </nav>
 
         <div class="nav-icons">
-          <a href="cart.php"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
           <a href="login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
         </div>
       </div>
      </header>
 
     <!-- CONTENT -->
-    <div class="contact-page">
-      <div class="contact-container">
-        <h1>Contact Us</h1>
-        <p>Catering for an event or have any questions? Drop us an enquiry and we will get back to you within 3 working days.</p>
-
-        <form id="contactForm">
-          <input type="text" id="contactName" placeholder="Full Name" required>
-          <input type="email" id="contactEmail" placeholder="Email" required>
-          
-          <div class="radio-group">
-            <label class="radio-label">Purpose of Enquiry:</label>
-            <div class="radio-options">
-              <label><input type="radio" name="purpose" value="Catering" checked> Catering</label>
-              <label><input type="radio" name="purpose" value="Career"> Career</label>
-              <label><input type="radio" name="purpose" value="General Enquiries"> General Enquiries</label>
-              <label><input type="radio" name="purpose" value="Others"> Others</label>
-            </div>
-            <input type="text" id="purposeOther" placeholder="If Others, please specify" class="purpose-other">
-          </div>
-
-          <textarea id="message" placeholder="Share Your Query" required></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+    <div class="member-welcome">
+        <h2>Welcome back, <span id="username"><?php echo htmlspecialchars($_SESSION['user']['username']); ?></span>!</h2>
+        <p>Claim your weekly vouchers here:</p>
+        <table class="voucher-container">
+            <tr>
+                <td>
+                    <table class="voucher-card">
+                        <tr><td class="discount-text">Weekly Special 20% Off</td></tr>
+                        <tr><td class="condition-text">min. spend of $6.00</td></tr>
+                        <tr><td><button class="claim-btn" data-voucher-id="1">Claim now</button></td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="voucher-card">
+                        <tr><td class="discount-text">Lunch Special 10% Off</td></tr>
+                        <tr><td class="condition-text">min. spend of $5.00</td></tr>
+                        <tr><td><button class="claim-btn" data-voucher-id="2">Claim now</button></td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="voucher-card">
+                        <tr><td class="discount-text">Bento Set $5 Off</td></tr>
+                        <tr><td class="condition-text">min. spend of $15.00</td></tr>
+                        <tr><td><button class="claim-btn" data-voucher-id="3">Claim now</button></td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </div>
-
-  <!-- Popup -->
-  <div id="popup" class="popup hidden">
-    <div class="popup-content">
-      <p id="popupMessage"></p>
-      <button id="popupClose">Close</button>
-    </div>
-  </div>
-
-  <script src="../js/contact-validation.js"></script>
 
     <!-- FOOTER -->
     <footer>
@@ -143,5 +144,36 @@
       </div>
     </footer>
 
+<script>
+// Update the claim button event listener in member.html
+document.querySelectorAll('.claim-btn').forEach(button => {
+    button.addEventListener('click', async function() {
+        const voucherId = this.dataset.voucherId;
+        const formData = new FormData();
+        formData.append('voucher_id', voucherId);
+
+        try {
+            const response = await fetch('../api/claim.php', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.text();
+            const [status, message] = result.split(':');
+            
+            if (status === 'success') {
+                this.disabled = true;
+                this.textContent = 'Claimed';
+                this.style.backgroundColor = '#999';
+            }
+            
+            showPopup(message, status === 'success');
+            
+        } catch (error) {
+            showPopup('Error claiming voucher', false);
+        }
+    });
+});
+</script>
   </body>
 </html>

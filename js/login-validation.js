@@ -26,23 +26,27 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
 function handleLoginResponse(result) {
     if (result === "success") {
-        showPopup("Welcome back!", true);
-        loginAttempts = 0;
+        showSuccessCard();
     } else if (result === "locked") {
         showPopup("Too many failed attempts. Please try again later.", false);
         document.getElementById("loginUsername").disabled = true;
         document.getElementById("loginPassword").disabled = true;
     } else {
-        loginAttempts++;
         showPopup("Invalid username or password.", false);
     }
 }
 
-function showPopup(message, success) {
-    const popup = document.getElementById("popup");
-    const msg = document.getElementById("popupMessage");
-    msg.textContent = message;
-    popup.classList.remove("hidden", "error");
-    if (!success) popup.classList.add("error");
-    popup.classList.remove("hidden");
+function showSuccessCard() {
+    const card = document.getElementById("loginSuccessCard");
+    document.querySelector(".login-container").classList.add("hidden");
+    card.classList.remove("hidden");
+
+    // Button event listeners
+    document.getElementById("goToMenu").onclick = () => {
+        window.location.href = "menu.php";
+    };
+    document.getElementById("goToMember").onclick = () => {
+        window.location.href = "member.php";
+    };
 }
+

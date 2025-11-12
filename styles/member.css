@@ -1,0 +1,52 @@
+.member-welcome{
+    background-color: #F2E8CF;
+    width: 100%;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #38674a;
+    margin-bottom: 20px;
+}
+
+.voucher-container {
+    width: 100%;
+    border-spacing: 20px;
+    margin: 20px 0;
+}
+
+.voucher-card {
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.discount-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: #38674a;
+    padding: 10px 0;
+}
+
+.condition-text {
+    font-size: 16px;
+    color: #38674a;
+    padding: 10px 0;
+}
+
+.claim-btn {
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.claim-btn:hover {
+    background-color: #FF5252;
+}

@@ -1,0 +1,10 @@
+/*Wrapper keeps page centered with max width*/
+section {
+    width: 90%;
+    margin: 50px auto;
+    max-width: 1280px;
+    min-width: 900px;
+    min-height: 300px;
+    background-color: #F2E8CF; 
+}
+

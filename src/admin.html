@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Concert+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/contact.css">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <script src="../js/admin.js" defer></script>
   </head>
   <body>
     <!-- NAVIGATION -->
@@ -25,48 +26,25 @@
         </nav>
 
         <div class="nav-icons">
-          <a href="cart.php"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
-          <a href="login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
+          <a href="src/cart.html"><img src="../assets/images/Cart_BB.png" alt="Cart" class="icon"></a>
+          <a href="src/login.html"><img src="../assets/images/User_BB.png" alt="Login" class="icon"></a>
         </div>
       </div>
      </header>
 
     <!-- CONTENT -->
-    <div class="contact-page">
-      <div class="contact-container">
-        <h1>Contact Us</h1>
-        <p>Catering for an event or have any questions? Drop us an enquiry and we will get back to you within 3 working days.</p>
+    <section class="admin">
+        <h2>Admin Login</h2>
+            <form id="adminForm">
+                <label for="username">User:</label>
+                <input type="text" id="username" placeholder="Enter username"><br><br>
 
-        <form id="contactForm">
-          <input type="text" id="contactName" placeholder="Full Name" required>
-          <input type="email" id="contactEmail" placeholder="Email" required>
-          
-          <div class="radio-group">
-            <label class="radio-label">Purpose of Enquiry:</label>
-            <div class="radio-options">
-              <label><input type="radio" name="purpose" value="Catering" checked> Catering</label>
-              <label><input type="radio" name="purpose" value="Career"> Career</label>
-              <label><input type="radio" name="purpose" value="General Enquiries"> General Enquiries</label>
-              <label><input type="radio" name="purpose" value="Others"> Others</label>
-            </div>
-            <input type="text" id="purposeOther" placeholder="If Others, please specify" class="purpose-other">
-          </div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter password"><br><br>
 
-          <textarea id="message" placeholder="Share Your Query" required></textarea>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-    </div>
-
-  <!-- Popup -->
-  <div id="popup" class="popup hidden">
-    <div class="popup-content">
-      <p id="popupMessage"></p>
-      <button id="popupClose">Close</button>
-    </div>
-  </div>
-
-  <script src="../js/contact-validation.js"></script>
+                <input type="button" value="Log In" onclick="validateAdmin()">
+            </form>
+    </section> 
 
     <!-- FOOTER -->
     <footer>
