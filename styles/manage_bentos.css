@@ -1,0 +1,189 @@
+/* =============================================
+   MANAGE BENTOS ADMIN STYLES (manage_bentos.css)
+   ============================================= */
+
+/* Main admin content container */
+#main-admin {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#main-admin h2 {
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+#main-admin h3 {
+    color: #555;
+    margin-top: 30px;
+    background-color: #f4f4f4;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 40px 0;
+}
+
+/* --- 'Add New Item' Form --- */
+.add-item-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 20px;
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.add-item-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-item-form .form-group-full {
+    grid-column: 1 / -1; /* Span full width */
+}
+
+.add-item-form label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #444;
+}
+
+.add-item-form input[type="text"],
+.add-item-form input[type="number"],
+.add-item-form select,
+.add-item-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+.add-item-form textarea {
+    resize: vertical;
+}
+
+/* --- Manage Tables --- */
+.table-wrapper {
+    overflow-x: auto; /* Allows table to be scrolled horizontally on small screens */
+}
+
+.manage-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.manage-table th,
+.manage-table td {
+    border: 1px solid #ddd;
+    padding: 12px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.manage-table th {
+    background-color: #f2f2f2;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.manage-table .col-desc {
+    width: 40%;
+}
+.manage-table .col-actions {
+    width: 150px;
+    text-align: center;
+}
+
+/* Inputs inside the table */
+.manage-table input,
+.manage-table select,
+.manage-table textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+}
+
+.manage-table textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.btn-add {
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+}
+.btn-add:hover {
+    background-color: #218838;
+}
+
+.btn-update {
+    background-color: #007bff;
+    color: white;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.btn-update:hover {
+    background-color: #0069d9;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    width: 100%;
+}
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Forms inside the table */
+.update-form {
+    /* These styles are applied to the <form> tag which is the direct child of <tr> */
+    /* We use display: contents to make the form tag "disappear" from the layout, 
+       allowing its children (the <td>) to be direct children of the <tr> for table layout */
+    display: contents;
+}
+.delete-form {
+    margin: 0;
+}
+
+.action-buttons {
+    vertical-align: middle;
+}
+
+/* Make sure the form inside the <td> doesn't add extra margins */
+.manage-table td .delete-form {
+    margin: 0;
+    padding: 0;
+}
