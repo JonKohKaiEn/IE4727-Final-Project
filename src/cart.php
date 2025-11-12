@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           echo '<p>Subtotal: $' . number_format($subtotal, 2) . '</p>';
           echo '<p>GST (9%): $' . number_format($gst, 2) . '</p>';
           echo '<p><strong>Total: $' . number_format($total, 2) . '</strong></p>';
-          echo '<form method="post" action="../api/submit_order.php">';
+          echo '<form method="get" action="checkout.php">';
           echo '<button type="submit" class="checkout-btn">Proceed to Checkout</button>';
           echo '</form>';
           echo '</div>';
